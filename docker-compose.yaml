@@ -289,5 +289,10 @@ services:
     volumes:
       - ./NBA_dbt:/dbt/NBA
 
+  django:
+    image: python_django
+    volumes:
+      - ./NBA_backend:/app/NBA_backend
+
 volumes:
   postgres-db-volume:
