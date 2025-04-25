@@ -1,0 +1,14 @@
+# 敏感檔案
+*.env
+*.key
+
+# macOS 系統檔案
+.DS_Store
+
+# Python 快取檔案
+__pycache__/
+*.pyc
+
+# 其他不必要的檔案
+*.log
+*.lock  # 如果不需要 poetry.lock，可以包含
