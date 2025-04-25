@@ -1,0 +1,1 @@
+select PERSON_ID from {{ source("NBA", "PlayerIndex")}}

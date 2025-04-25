@@ -1,0 +1,12 @@
+NBA:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      host: host.docker.internal
+      user: root
+      password: jason871226
+      port: 3306
+      database: NBA
+      schema: NBA
+      threads: 4
