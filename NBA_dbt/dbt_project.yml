@@ -37,3 +37,8 @@ models:
     players:
       +materialized: incremental
       +unique_key: PERSON_ID
+    player_advanced_data:
+      +materialized: incremental
+      +unique_key: 
+        - player_id
+        - gp
