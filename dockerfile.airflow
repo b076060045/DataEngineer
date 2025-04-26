@@ -1,0 +1,16 @@
+FROM apache/airflow:2.9.1
+
+# 設定要安裝的 pip package
+COPY airflow_requirements.txt /requirements.txt
+
+# 切换到 root 用户以安装必要的系统包
+USER root
+
+# 安装必要的系统包（如果有）
+# RUN apt-get update && apt-get install -y some-package
+
+# 切换回 airflow 用户
+USER airflow
+
+# 安装必要的 pip 包
+RUN pip install -r /requirements.txt
