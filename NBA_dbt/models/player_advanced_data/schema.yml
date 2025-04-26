@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: NBA                # 在 MySQL 中就是 database 名
+    tables:
+      - name: player_stats_playoff    # 真實存在的資料表
+        description: "NBA 球員季後賽資料"
