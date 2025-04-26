@@ -10,4 +10,18 @@ COPY ./NBA_dbt/poetry.lock ./NBA_dbt/pyproject.toml ./
 RUN poetry config virtualenvs.create false \
     && poetry install --no-root --no-interaction --no-ansi
 
-ENTRYPOINT [ "sleep", "infinity" ]
+# 修改 sshd_config，允許帳號+密碼登入
+# 安裝 ssh server
+RUN apt-get update && apt-get install -y openssh-server openssh-client curl passwd
+
+# 確保 ssh 設定目錄存在
+RUN mkdir -p /etc/ssh /var/run/sshd
+
+# 確認一定有檔案後，才進行 sed 修改
+COPY sshd_config /etc/ssh/sshd_config
+# ✅ 新增：設定 root 密碼
+RUN echo "root:jason871226" | chpasswd
+
+EXPOSE 22
+
+ENTRYPOINT [ "bash", "-c", "service ssh start && sleep infinity" ]
